@@ -13,7 +13,8 @@ Serve this directory using any static web server. Run `npm test` to check master
 
 - Answers to remember: 62 concise answers, with question context and optional hiding for recall.
 - Mnemonics: 62 source memory cues, separate from the answer section.
-- Complete guide: all 65 numbered items organized into seven topics, searchable with revealable answers.
+- Complete guide: 62 answered items organized into seven topics with revealable answers; unanswered items 13, 14, and 60 are excluded.
 - Review-later stars persist across library sections and reloads without changing quiz progress.
-- Original PDFs are available in each library section. Items 13, 14, and 60 retain missing-figure notices; source ambiguities are labeled.
+- Original PDFs are available in each library section. Search, lesson codes, and source-note callouts have been removed from the study screens.
 - Direct links: `#answers`, `#mnemonics`, `#guide`.
+- Remaining questions: 40 highlighted questions from the remaining practice PDF, using the existing seven-question correction/retry engine with independently saved progress. Direct link: `#remaining`.

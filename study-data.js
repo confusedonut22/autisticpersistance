@@ -183,7 +183,7 @@ export const studyItems = [
     "number": 19,
     "topic": "Security & Access Control",
     "question": "What type of security system circuit uses devices connected in series?",
-    "answer": "OPEN LOOP (as highlighted in the source; a handwritten note beside it questions \"closed loop?\")",
+    "answer": "OPEN LOOP",
     "reference": "BA2L4",
     "missing": false,
     "remember": "OPEN LOOP",
