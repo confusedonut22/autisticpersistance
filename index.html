@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#126b5b"><meta name="description" content="Study Test 9 in groups of seven. Practice questions, revisit mistakes, and master perfect matching rounds.">
+  <title>Test 9 · Seven at a time</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="Test 9 home"><span class="brand-icon">7</span><span>Seven at a time<small>TEST 9 STUDY PRACTICE</small></span></a>
+    <div class="nav-label">YOUR WORKSPACE</div>
+    <nav aria-label="Study modes"><button id="quiz-mode" class="nav-button"><span>◎</span> Practice questions <span class="nav-arrow">↗</span></button><button id="matching-mode" class="nav-button"><span>⇄</span> Matching practice <span class="nav-arrow">↗</span></button></nav>
+    <div class="sidebar-note"><span class="little-seven">7</span><h2>A little at a time.<br>Until it sticks.</h2><p>One batch. A few retries.<br>Progress that adds up.</p></div>
+    <div class="save-note" id="save-note">● Progress saved on this browser</div>
+  </aside>
+  <div class="workspace"><header><span>Study packet <span class="slash">/</span> <strong>Test 9</strong></span><button id="help" class="text-button">How it works <span aria-hidden="true">ⓘ</span></button></header>
+    <main id="app" tabindex="-1"></main>
+    <footer><span>Based on your highlighted Test 9 study packet</span><button id="restart" class="text-button">Reset this mode</button></footer>
+  </div>
+  <dialog id="help-dialog"><button class="close" aria-label="Close instructions">×</button><p class="eyebrow">SEVEN AT A TIME</p><h2>Practice until it sticks.</h2><p><strong>Practice questions:</strong> Answer each question. A wrong answer must be corrected before you can continue. At the end of seven, repeat only the questions you missed. Keep going until every question has been answered without a mistake on its latest attempt.</p><p><strong>Matching:</strong> Match every question to an answer and submit the set. If any are wrong, repeat the entire same set until you get a perfect score. Answers can be reused when questions share the same correct answer.</p><p>Each mode covers all 36 items independently, in random batches of seven. The final batch contains one item. Progress saves on this browser; switching modes keeps your place.</p></dialog>
+  <dialog id="reset-dialog"><h2>Start this mode again?</h2><p>This clears this mode’s saved progress and reshuffles its questions. Your other mode keeps its progress.</p><div class="actions"><button class="secondary" id="cancel-reset">Keep studying</button><button class="primary" id="confirm-reset">Start again</button></div></dialog>
+  <script type="module" src="app.js"></script>
+</body></html>
