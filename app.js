@@ -1,4 +1,5 @@
 import { questions } from './questions.js';
+import { renderLibrary } from './study-library.js';
 import { shuffle, createSession, batch, begin, answer, next, continueQuiz, submitMatches, continueMatching } from './engine.js';
 const byId = Object.fromEntries(questions.map(q => [q.id, q]));
 const ids = questions.map(q => q.id);
@@ -18,6 +19,19 @@ if (!state) { state = {mode:'quiz',quiz:createSession(ids),matching:createSessio
 const app = document.querySelector('#app');
 function save() { try { localStorage.setItem(KEY,JSON.stringify(state)); } catch { document.querySelector('#save-note').textContent = 'Progress is only available until this page closes'; } }
 function render(focus = false) {
+  const view = location.hash.slice(1);
+  const library = ['answers','mnemonics','guide'].includes(view);
+  document.querySelectorAll('[data-library]').forEach(button=>{
+    button.classList.toggle('active',view===button.dataset.library);
+    button.setAttribute('aria-pressed',String(view===button.dataset.library));
+  });
+  document.querySelector('#restart').hidden=library;
+  if (library) {
+    ['quiz','matching'].forEach(mode=>{document.querySelector(`#${mode}-mode`).classList.remove('active');document.querySelector(`#${mode}-mode`).setAttribute('aria-pressed','false');});
+    renderLibrary(app,view);
+    if(focus){app.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
+    return;
+  }
   const s = state[state.mode], matching = state.mode === 'matching';
   const complete = s.phase === 'complete';
   document.querySelector('#quiz-mode').classList.toggle('active',!matching);
@@ -57,8 +71,10 @@ function bind(s,matching) {
     if(action==='submit')app.querySelector('.feedback').scrollIntoView({block:'center',behavior:'instant'});
   });
 }
-document.querySelector('#quiz-mode').onclick=()=>{state.mode='quiz';render(true);};
-document.querySelector('#matching-mode').onclick=()=>{state.mode='matching';render(true);};
+document.querySelector('#quiz-mode').onclick=()=>{state.mode='quiz';history.replaceState(null,'',location.pathname);render(true);};
+document.querySelector('#matching-mode').onclick=()=>{state.mode='matching';history.replaceState(null,'',location.pathname);render(true);};
+document.querySelectorAll('[data-library]').forEach(button=>button.onclick=()=>{history.replaceState(null,'',`#${button.dataset.library}`);render(true);});
+window.addEventListener('hashchange',()=>render(true));
 const help=document.querySelector('#help-dialog'),reset=document.querySelector('#reset-dialog');
 document.querySelector('#help').onclick=()=>help.showModal();
 help.querySelector('.close').onclick=()=>help.close();
